@@ -9,7 +9,7 @@ ENV PATH=/root/.local/bin:$PATH
 COPY dist/*.whl /wheelhouse/
 COPY requirements.txt /app
 RUN uv pip install --system --break-system-packages -r /app/requirements.txt
-RUN uv pip install --system --break-system-packages "$(ls /wheelhouse/*.whl)[dashboard,image]"
+RUN uv pip install --system --break-system-packages "$(ls /wheelhouse/*.whl)"
 # RUN uv pip install --system --break-system-packages --no-deps `ls /wheelhouse/*.whl`
 RUN ursa --version
 
